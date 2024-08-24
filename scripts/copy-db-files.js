@@ -4,13 +4,22 @@ const fse = require('fs-extra');
 const path = require('path');
 const del = require('del');
 
+// function getDatabaseType(url = process.env.DATABASE_URL) {
+//   const type = process.env.DATABASE_TYPE || (url && url.split(':')[0]);
+
+//   if (type === 'postgres') {
+//     return 'postgresql';
+//   }
+
+//   return type;
+// }
+
 function getDatabaseType(url = process.env.DATABASE_URL) {
   const type = process.env.DATABASE_TYPE || (url && url.split(':')[0]);
-
+  console.log('Detected Database Type:', type); // デバッグ用ログ
   if (type === 'postgres') {
     return 'postgresql';
   }
-
   return type;
 }
 
